@@ -1,0 +1,193 @@
+[
+    {
+        "id": "ec4e8c01d3d3b41c",
+        "type": "tab",
+        "label": "Sqlite Tutorial",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f6a02dd62ad12987",
+        "type": "sqlite",
+        "z": "ec4e8c01d3d3b41c",
+        "mydb": "bf3ce67e70d399e3",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "sqliteDB",
+        "x": 820,
+        "y": 340,
+        "wires": [
+            [
+                "730f474a66bc1141"
+            ]
+        ]
+    },
+    {
+        "id": "159841f9b97d82ca",
+        "type": "inject",
+        "z": "ec4e8c01d3d3b41c",
+        "name": "Insert Manual Data",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "INSERT INTO sensor(datasensor1, datasensor2, currentdate, currenttime, device) values(22.4, 48, date('now'), time('now'), \"manual\")",
+        "payload": "",
+        "payloadType": "date",
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "f6a02dd62ad12987"
+            ]
+        ]
+    },
+    {
+        "id": "d30cd10a25a76884",
+        "type": "inject",
+        "z": "ec4e8c01d3d3b41c",
+        "name": "Select *",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "SELECT * FROM sensor",
+        "payload": "",
+        "payloadType": "date",
+        "x": 490,
+        "y": 400,
+        "wires": [
+            [
+                "f6a02dd62ad12987"
+            ]
+        ]
+    },
+    {
+        "id": "a79a8b651d9c33e2",
+        "type": "inject",
+        "z": "ec4e8c01d3d3b41c",
+        "name": "Delete sensor",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "DELETE FROM sensor",
+        "payload": "",
+        "payloadType": "date",
+        "x": 510,
+        "y": 460,
+        "wires": [
+            [
+                "f6a02dd62ad12987"
+            ]
+        ]
+    },
+    {
+        "id": "9fca3a32cadba7e1",
+        "type": "inject",
+        "z": "ec4e8c01d3d3b41c",
+        "name": "Drop table sensor",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "DROP TABLE sensor",
+        "payload": "",
+        "payloadType": "date",
+        "x": 530,
+        "y": 520,
+        "wires": [
+            [
+                "f6a02dd62ad12987"
+            ]
+        ]
+    },
+    {
+        "id": "dca396139b5e2f83",
+        "type": "inject",
+        "z": "ec4e8c01d3d3b41c",
+        "name": "Createdatabase",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "CREATE TABLE sensor(id INTEGER PRIMARY KEY AUTOINCREMENT, datasensor1 NUMERIC, datasensor2 NUMERIC, currentdate DATE, currenttime TIME, device TEXT)",
+        "payload": "",
+        "payloadType": "date",
+        "x": 520,
+        "y": 240,
+        "wires": [
+            [
+                "f6a02dd62ad12987"
+            ]
+        ]
+    },
+    {
+        "id": "730f474a66bc1141",
+        "type": "debug",
+        "z": "ec4e8c01d3d3b41c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "bf3ce67e70d399e3",
+        "type": "sqlitedb",
+        "db": "C:\\Users\\User\\Documents\\home\\Project\\FGD Tel-U 2022\\Sqlite",
+        "mode": "RWC"
+    }
+]
